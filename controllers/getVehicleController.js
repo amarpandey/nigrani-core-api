@@ -7,7 +7,7 @@ const getVehicleDetails = async (req, res)=>{
         // Calling getVehicle service 
         const token = req.query.sid;
         console.log('token :: '+ token);
-        const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(token)));
+        const vehicleData = await getVehicleService.getVehicleServices(token);
         let vehicleDetails = [];
         res.send(vehicleData);
 
