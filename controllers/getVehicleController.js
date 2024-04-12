@@ -1,5 +1,5 @@
 console.log('inside controller');
-import { getVehicleServices } from '../services/getVehicleService';
+const getVehicleService = require('../services/getVehicleService');
 
 const getVehicleDetails = async (req, res)=>{
     try{
@@ -7,7 +7,7 @@ const getVehicleDetails = async (req, res)=>{
         // Calling getVehicle service 
         const token = req.query.sid;
         console.log('token :: '+ token);
-        const vehicleData = JSON.parse(JSON.stringify(await getVehicleServices(token)));
+        const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(token)));
         let vehicleDetails = [];
         res.send(vehicleData);
 
@@ -107,6 +107,6 @@ function inRange(x, min, max) {
 }
 
 
-export default getVehicleDetails;
+module.exports = getVehicleDetails;
 
 
