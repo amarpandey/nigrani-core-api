@@ -1,6 +1,8 @@
 console.log(`welcome to get vehicle service`);
 const axios = require('axios');
 
+return 'hello';
+
 const getVehicleServices = async (sidToken) =>{
     try {
         const res = await axios({
