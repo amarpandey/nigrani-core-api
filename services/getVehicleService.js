@@ -1,17 +1,15 @@
-try{
-  console.log(`welcome to get vehicle service`);
-  const axios = require('axios');
 
-  return 'hello';
-}catch(err){
-  console.log('error::'+ err);
-}
+const axios = require('axios');
+
 
 
 const getVehicleServices = async (sidToken) =>{
     try {
+      console.log(`welcome to get vehicle service`);
+      // return 'hello';
+      try{
         const res = await axios({
-            method: 'get',
+            method: 'POST',
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'token/login',
@@ -20,6 +18,10 @@ const getVehicleServices = async (sidToken) =>{
         });
         let token = res;
         return token;
+      } catch (error) {
+        console.error(error); // `error` will be whatever you passed to `reject()` at the top
+        return error;
+      }
 
         // Making vehicle detail call
         // const vehicleDetails = await axios({
@@ -38,4 +40,4 @@ const getVehicleServices = async (sidToken) =>{
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
 }
-module.exports = getVehicleServices;
+module.exports = {getVehicleServices};
