@@ -6,11 +6,12 @@ const getVehicleDetails = async (req, res)=>{
         console.log('inside getVehicleDetails controller:: ');
         // Calling getVehicle service 
         const token = req.query.sid;
+        console.log('token :: '+ token);
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(token)));
         let vehicleDetails = [];
         res.send(vehicleData);
 
-        
+
     
         // vehicleData.forEach((element, index) => {
         //     const vehicleSensorData = element.d.sens;
