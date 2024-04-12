@@ -1,7 +1,12 @@
-console.log(`welcome to get vehicle service`);
-const axios = require('axios');
+try{
+  console.log(`welcome to get vehicle service`);
+  const axios = require('axios');
 
-return 'hello';
+  return 'hello';
+}catch(err){
+  console.log('error::'+ err);
+}
+
 
 const getVehicleServices = async (sidToken) =>{
     try {
@@ -33,4 +38,4 @@ const getVehicleServices = async (sidToken) =>{
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
 }
-module.exports = {getVehicleServices};
+module.exports = getVehicleServices;
