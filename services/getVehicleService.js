@@ -17,8 +17,8 @@ const getVehicleServices = async (sidToken) =>{
             }
         });
         console.log('Hey wialon');
-        console.log(res);
-        let token = res;
+        console.log(res.data.eid);
+        let token = res.data.eid;
         return token;
       } catch (error) {
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
