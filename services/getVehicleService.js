@@ -16,8 +16,8 @@ const getVehicleServices = async (sidToken) =>{
                 params: '{"token":"9e582221ad39b510b1c6951d6df5a2a40513B3847580C9B771D0B2EB25462F5D2BBAF337","operateAs":"","appName":"","checkService":""}'
             }
         });
-        console.log('Hey wialon');
-        console.log(res.data.eid);
+        // console.log('Hey wialon');
+        // console.log(res.data.eid);
         let token = res.data.eid;
         return token;
       } catch (error) {
