@@ -1,13 +1,8 @@
 
 const axios = require('axios');
-
-
-
 const getVehicleServices = async (sidToken) =>{
     try {
       console.log(`welcome to get vehicle service`);
-      // return 'hello';
-      
       const res = await axios({
           method: 'POST',
           url:'https://hst-api.wialon.com/wialon/ajax.html',
@@ -16,13 +11,10 @@ const getVehicleServices = async (sidToken) =>{
               params: '{"token":"9e582221ad39b510b1c6951d6df5a2a40513B3847580C9B771D0B2EB25462F5D2BBAF337","operateAs":"","appName":"","checkService":""}'
           }
       });
-      // console.log('Hey wialon');
-      // console.log(res.data.eid);
       let token = res.data.eid;
-      // return token;
-      
 
       // Making vehicle detail call
+      console.log(`welcome to get vehicle details`);
       const groupVehicleData = await axios({
           method: 'get',
           url:'https://hst-api.wialon.com/wialon/ajax.html',
@@ -34,6 +26,7 @@ const getVehicleServices = async (sidToken) =>{
       });
 
       // Fetching result rows
+      console.log(`welcome to get result rows`);
       const vehicleReportData = await axios({
           method: 'get',
           url:'https://hst-api.wialon.com/wialon/ajax.html',

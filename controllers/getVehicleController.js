@@ -5,9 +5,11 @@ const getVehicleDetails = async (req, res)=>{
     try{
         console.log('inside getVehicleDetails controller:: ');
         // Calling getVehicle service 
-        const token = req.query.sid;
-        console.log('token :: '+ token);
-        const vehicleData = await getVehicleService.getVehicleServices(token);
+        const userToken = req.query.token;
+        const reportFrom = req.query.from;
+        const reportTo = req.query.to;
+        console.log('token :: '+ userToken);
+        const vehicleData = await getVehicleService.getVehicleServices(userToken);
         // let vehicleDetails = [];
         res.send(vehicleData);
 
