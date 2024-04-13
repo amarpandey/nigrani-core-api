@@ -23,8 +23,8 @@ const getVehicleServices = async (sidToken) =>{
       
 
       // Making vehicle detail call
+      console.log(`welcome to get vehicle data`);
       const vehicleDetails = await axios({
-        console.log(`welcome to get vehicle data`);
           method: 'get',
           url:'https://hst-api.wialon.com/wialon/ajax.html',
           params:{
