@@ -45,7 +45,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           url:'https://hst-api.wialon.com/wialon/ajax.html',
           params:{
               svc: 'report/get_result_rows',
-              params: '{"tableIndex":0,"indexFrom":0,"indexTo":3}',
+              params: '{"tableIndex":0,"indexFrom":0,"indexTo":15}',
               sid: token
           }
       });
