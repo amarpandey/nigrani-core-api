@@ -33,7 +33,24 @@ const getVehicleServices = async (sidToken) =>{
           }
       });
 
+      const resultRows = vehicleDetails.layerCount
+      console.log(resultRows);
+
       // Fetching result rows
+      // Making vehicle detail call
+      const resultRowsData = await axios({
+          method: 'get',
+          url:'https://hst-api.wialon.com/wialon/ajax.html',
+          params:{
+              svc: 'report/get_result_rows',
+              params: '{"tableIndex":0,"indexFrom":0,"indexTo":3}',
+              sid: token
+          }
+      });
+
+      console.log(resultRowsData);
+
+
       const vehicleData = vehicleDetails.data;
       return vehicleData;
 
