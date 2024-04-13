@@ -52,7 +52,7 @@ const getVehicleServices = async (sidToken) =>{
       console.log(resultRowsData.data);
 
 
-      const vehicleData = vehicleDetails.data;
+      const vehicleData = resultRowsData;
       return vehicleData;
 
       } catch (error) {
