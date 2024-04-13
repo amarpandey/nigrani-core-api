@@ -27,17 +27,17 @@ const getVehicleServices = async (sidToken) =>{
 
       // Fetching result rows
       console.log(`welcome to get result rows`);
-      const vehicleReportData = await axios({
-          method: 'get',
-          url:'https://hst-api.wialon.com/wialon/ajax.html',
-          params:{
-              svc: 'report/get_result_rows',
-              params: '{"tableIndex":0,"indexFrom":0,"indexTo":3}',
-              sid: token
-          }
-      });
+      // const vehicleReportData = await axios({
+      //     method: 'get',
+      //     url:'https://hst-api.wialon.com/wialon/ajax.html',
+      //     params:{
+      //         svc: 'report/get_result_rows',
+      //         params: '{"tableIndex":0,"indexFrom":0,"indexTo":3}',
+      //         sid: token
+      //     }
+      // });
 
-      const vehicleData = vehicleReportData;
+      const vehicleData = groupVehicleData;
       return vehicleData;
 
       } catch (error) {
