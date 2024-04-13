@@ -51,8 +51,27 @@ const getVehicleServices = async (sidToken) =>{
 
       console.log(resultRowsData.data);
 
+      const responseData = [
+        {
+           "mapping":[
+              "id",
+              "group_vehicle",
+              "mileage",
+              "engine_hours",
+              "parkings",
+              "cons_fls",
+              "kmpl",
+              "filled",
+              "stolen"
+           ]
+        },
+        {
+           "data": resultRowsData.data
+        }
+      ];
 
-      const vehicleData = resultRowsData.data;
+
+      const vehicleData = responseData;
       return vehicleData;
 
       } catch (error) {
