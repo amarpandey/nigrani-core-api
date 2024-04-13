@@ -11,7 +11,7 @@ const getVehicleDetails = async (req, res)=>{
         console.log('token :: '+ userToken);
         console.log('from :: '+ new Date(reportFrom).valueOf());
         console.log('to :: '+ new Date(reportTo).valueOf());
-        const vehicleData = await getVehicleService.getVehicleServices(userToken);
+        const vehicleData = await getVehicleService.getVehicleServices(userToken, new Date(reportFrom).valueOf(), new Date(reportTo).valueOf());
         res.send(vehicleData);
     }catch(err){
         return err;

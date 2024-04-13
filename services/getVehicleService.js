@@ -3,7 +3,7 @@ const axios = require('axios');
 
 
 
-const getVehicleServices = async (sidToken) =>{
+const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
     try {
       console.log(`welcome to get vehicle service`);
       // return 'hello';
@@ -29,7 +29,7 @@ const getVehicleServices = async (sidToken) =>{
           url:'https://hst-api.wialon.com/wialon/ajax.html',
           params:{
               svc: 'report/exec_report',
-              params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"22624236","reportObjectSecId":0,"reportObjectIdList":[22616131],"interval":{"from":1710961449,"to":1711047849,"flags":0}}',
+              params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"22624236","reportObjectSecId":0,"reportObjectIdList":[22616131],"interval":{"from":'+reportFrom+',"to":'+reportFrom+',"flags":0}}',
               sid: token
           }
       });
