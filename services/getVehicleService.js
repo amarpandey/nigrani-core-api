@@ -30,7 +30,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           url:'https://hst-api.wialon.com/wialon/ajax.html',
           params:{
               svc: 'report/exec_report',
-              params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"22624236","reportObjectSecId":0,"reportObjectIdList":[22616131],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
+              params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"22616131","reportObjectSecId":0,"reportObjectIdList":[22624236,22624322,22627878,22872953,22880405,22889944],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
               sid: token
           }
       });
