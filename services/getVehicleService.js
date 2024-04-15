@@ -14,7 +14,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           url:'https://hst-api.wialon.com/wialon/ajax.html',
           params:{
               svc: 'token/login',
-              params: '{"token":"9e582221ad39b510b1c6951d6df5a2a40513B3847580C9B771D0B2EB25462F5D2BBAF337","operateAs":"","appName":"","checkService":""}'
+              params: '{"token":"9e582221ad39b510b1c6951d6df5a2a4ECE871EDFDFE3D78EC0ABC72929B578A4A12DD04","operateAs":"","appName":"","checkService":""}'
           }
       });
       // console.log('Hey wialon');
