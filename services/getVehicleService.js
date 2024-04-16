@@ -50,7 +50,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           }
       });
 
-      console.log(resultRowsData.data);
+      console.log(resultRowsData.data.c);
 
       const responseData = [
         {
