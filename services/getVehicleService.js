@@ -67,7 +67,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
            ]
         },
         {
-           "data": resultRowsData.data[0].c
+           "data": resultRowsData.data
         }
       ];
 
