@@ -50,7 +50,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           }
       });
 
-      const parsedData = resultRowsData.map((ele)=>{
+      const parsedData = resultRowsData.data.map((ele)=>{
         return ele.c;
       });
 
