@@ -50,7 +50,11 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
           }
       });
 
-      console.log(resultRowsData.data[0].c);
+      const parsedData = resultRowsData.map((ele)=>{
+        return ele.c;
+      });
+
+      console.log(resultRowsData.data);
 
       const responseData = [
         {
@@ -67,7 +71,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
            ]
         },
         {
-           "data": resultRowsData.data
+           "data": resultRowsData.parsedData;
         }
       ];
 
