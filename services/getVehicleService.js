@@ -34,9 +34,10 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
               sid: token
           }
       });
+      
 
       const resultRows = vehicleDetails.layerCount;
-      console.log(resultRows);
+      console.log(resultRows);  
 
       // Fetching result rows
       // Making vehicle detail call
