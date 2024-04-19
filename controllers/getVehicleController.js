@@ -7,7 +7,7 @@ const getVehicleDetails = async (req, res)=>{
         // Calling getVehicle service 
         const userToken = req.query.token;
         const reportFrom = (new Date(req.query.from).getTime() / 1000);
-        const reportTo = (new Date(req.query.to).getTime() / 1000);
+        const reportTo = (new Date(req.query.to + '23:59').getTime() / 1000);
         console.log('token :: '+ userToken);
         console.log('from :: '+ reportFrom);
         console.log('to :: '+ reportTo);
