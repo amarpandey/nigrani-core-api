@@ -8,8 +8,8 @@ const getVehicleDetails = async (req, res)=>{
         const userToken = req.query.token;
         const reportFrom = (new Date(req.query.from).getTime() / 1000);
         console.log((new Date(req.query.to).setHours(23, 59, 59, 999)));
-        console.log(new Date((new Date(req.query.to).setHours(23, 59, 59, 999)).getTime() / 1000))
-        const reportTo = new Date((new Date(req.query.to).setHours(23, 59, 59, 999)).getTime() / 1000);
+        // console.log(new Date((new Date(req.query.to).setHours(23, 59, 59, 999)).getTime() / 1000))
+        const reportTo = (new Date(req.query.to).setHours(23, 59, 59, 999));
         console.log('token :: '+ userToken);
         console.log('from :: '+ reportFrom);
         console.log('to :: '+ reportTo);
