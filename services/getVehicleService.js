@@ -4,9 +4,9 @@ const { report } = require('process');
 
 
 
-const getVehicleServices = async (sidToken, reportFrom, reportTo) =>{
+const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>{
     try {
-        console.log(`welcome to get vehicle service ${reportFrom} , ${reportTo}`);
+        console.log(`welcome to get vehicle service ${reportFrom} , ${reportTo}`, reportType);
         // return 'hello';
         
         const res = await axios({

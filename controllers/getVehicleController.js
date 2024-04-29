@@ -7,13 +7,13 @@ const getVehicleDetails = async (req, res)=>{
         // Calling getVehicle service 
         const userToken = req.query.token;
         const reportFrom = (new Date(req.query.from).getTime() / 1000);
-        console.log((new Date(req.query.to).setHours(23, 59)) / 1000);
-        // console.log(new Date((new Date(req.query.to).setHours(23, 59, 59)).getTime() / 1000))
         const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
         console.log('token :: '+ userToken);
         console.log('from :: '+ reportFrom);
         console.log('to :: '+ reportTo);
-        const vehicleData = await getVehicleService.getVehicleServices(userToken,reportFrom, reportTo);
+        console.log('reportType :: '+ reportType);
+
+        const vehicleData = await getVehicleService.getVehicleServices(userToken,reportFrom, reportTo, reportType = 'summary-report');
         res.send(vehicleData);
     }catch(err){
         return err;
