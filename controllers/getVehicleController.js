@@ -6,15 +6,21 @@ const getVehicleDetails = async (req, res)=>{
         console.log('inside getVehicleDetails controller:: ');
         // Calling getVehicle service 
         const userToken = req.query.token;
-        const reportFrom = (new Date(req.query.from).getTime() / 1000);
-        const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
-        console.log('token :: '+ userToken);
-        console.log('from :: '+ reportFrom);
-        console.log('to :: '+ reportTo);
-        console.log('reportType :: '+ reportType);
+        const validToken = userToken == '9e582221ad39b510b1c6951d6df5a2a4ECE871EDFDFE3D78EC0ABC72929B578A4A12DD04' ? true : false;
+        if(validToken){
+            const reportFrom = (new Date(req.query.from).getTime() / 1000);
+            const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
+            console.log('token :: '+ userToken);
+            console.log('from :: '+ reportFrom);
+            console.log('to :: '+ reportTo);
+            console.log('reportType :: '+ reportType);
 
-        const vehicleData = await getVehicleService.getVehicleServices(userToken,reportFrom, reportTo, reportType = 'summary-report');
-        res.send(vehicleData);
+            const vehicleData = await getVehicleService.getVehicleServices(userToken,reportFrom, reportTo, reportType = 'summary-report');
+            res.send(vehicleData);
+        }else{
+            res.send('Invalid Token');0
+        }
+        
     }catch(err){
         return err;
     }
