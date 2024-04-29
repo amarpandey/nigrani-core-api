@@ -10,6 +10,7 @@ const getVehicleDetails = async (req, res)=>{
         if(validToken){
             const reportFrom = (new Date(req.query.from).getTime() / 1000);
             const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
+            const reportType = req.query.report;
             console.log('token :: '+ userToken);
             console.log('from :: '+ reportFrom);
             console.log('to :: '+ reportTo);
