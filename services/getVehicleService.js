@@ -1,6 +1,6 @@
 
 const axios = require('axios');
-const { report } = require('process');
+// const { report } = require('process');
 
 
 
@@ -20,14 +20,14 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
         let token = res.data.eid;
 
         // Set the data timezone
-        const setTimezone = await axios({
-            method: 'POST',
-            url:'https://hst-api.wialon.com/wialon/ajax.html',
-            params:{
-                svc: 'render/set_locale',
-                params: '{"tzOffset": }'
-            }
-        });
+        // const setTimezone = await axios({
+        //     method: 'POST',
+        //     url:'https://hst-api.wialon.com/wialon/ajax.html',
+        //     params:{
+        //         svc: 'render/set_locale',
+        //         params: '{"tzOffset": }'
+        //     }
+        // });
 
         // Making vehicle detail call
         console.log(`welcome to get vehicle data`);
