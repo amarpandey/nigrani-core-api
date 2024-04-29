@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>{
     try {
-        console.log(`welcome to get vehicle service ${reportFrom} , ${reportTo}`);
+        console.log(`welcome to get vehicle service ${reportFrom} , ${reportTo}`, template);
         // return 'hello';
         
         const res = await axios({
