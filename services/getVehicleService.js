@@ -25,7 +25,8 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'render/set_locale',
-                params: '{"tzOffset": "134237528" }'
+                params: '{"tzOffset": 1342375280 , "language": "en"}',
+                sid: token
             }
         });
 
