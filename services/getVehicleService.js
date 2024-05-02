@@ -25,9 +25,11 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'render/set_locale',
-                params: '{"tzOffset": 134237528 }'
+                params: '{"tzOffset": "134237528" }'
             }
         });
+
+        console.log(setTimezone);
 
         // Making vehicle detail call
         console.log(`welcome to get vehicle data`);
