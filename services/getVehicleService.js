@@ -20,66 +20,172 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
         let token = res.data.eid;
 
         // Set the data timezone
-        const setTimezone = await axios({
-            method: 'POST',
-            url:'https://hst-api.wialon.com/wialon/ajax.html',
-            params:{
-                svc: 'render/set_locale',
-                params: '{"tzOffset": 1342375280 , "language": "en"}',
-                sid: token
-            }
-        });
+        // const setTimezone = await axios({
+        //     method: 'POST',
+        //     url:'https://hst-api.wialon.com/wialon/ajax.html',
+        //     params:{
+        //         svc: 'render/set_locale',
+        //         params: '{"tzOffset": 1342375280 , "language": "en"}',
+        //         sid: token
+        //     }
+        // });
 
-        console.log(setTimezone);
+        // console.log(setTimezone);
+        let vehicleData;
 
-        // Making vehicle detail call
-        console.log(`welcome to get vehicle data`);
-        const vehicleDetails = await axios({
-            method: 'get',
-            url:'https://hst-api.wialon.com/wialon/ajax.html',
-            params:{
-                svc: 'report/exec_report',
-                params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"27732669","reportObjectSecId":0,"reportObjectIdList":[28093532, 28093527],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
-                sid: token
-            }
-        });
+        if(reportType == 'summary'){
+            // Making vehicle detail call
+            console.log(`welcome to get vehicle data`);
+            const vehicleDetails = await axios({
+                method: 'get',
+                url:'https://hst-api.wialon.com/wialon/ajax.html',
+                params:{
+                    svc: 'report/exec_report',
+                    params: '{"reportResourceId":22542222,"reportTemplateId":1,"reportTemplate":null,"reportObjectId":"27732669","reportObjectSecId":0,"reportObjectIdList":[28093532, 28093527],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
+                    sid: token
+                }
+            });
 
 
-        const resultRows = vehicleDetails.layerCount;
-        console.log(resultRows);  
+            const resultRows = vehicleDetails.layerCount;
+            console.log(resultRows);
 
-        // Fetching result rows
-        // Making vehicle detail call
-        const resultRowsData = await axios({
-            method: 'get',
-            url:'https://hst-api.wialon.com/wialon/ajax.html',
-            params:{
-                svc: 'report/get_result_rows',
-                params: '{"tableIndex":0,"indexFrom":0,"indexTo":100}',
-                sid: token
-            }
-        });
+            // Fetching result rows
+                // Making vehicle detail call
+                const resultRowsData = await axios({
+                    method: 'get',
+                    url:'https://hst-api.wialon.com/wialon/ajax.html',
+                    params:{
+                        svc: 'report/get_result_rows',
+                        params: '{"tableIndex":0,"indexFrom":0,"indexTo":100}',
+                        sid: token
+                    }
+                });
 
-      const responseData = [
-        {
-           "mapping":[
-              "id",
-              "group_vehicle",
-              "mileage",
-              "engine_hours",
-              "parkings",
-              "cons_fls",
-              "kmpl",
-              "filled",
-              "stolen"
-           ]
-        },
-        {
-           "data": resultRowsData.data
+            const responseData = [
+                {
+                "mapping":[
+                    "id",
+                    "group_vehicle",
+                    "mileage",
+                    "engine_hours",
+                    "parkings",
+                    "cons_fls",
+                    "kmpl",
+                    "filled",
+                    "stolen"
+                ]
+                },
+                {
+                "data": resultRowsData.data
+                }
+            ];
+
+            vehicleData = responseData;
+        }else if(reportType == 'parking'){
+            // Making vehicle detail call
+            console.log(`welcome to get vehicle data`);
+            const vehicleDetails = await axios({
+                method: 'get',
+                url:'https://hst-api.wialon.com/wialon/ajax.html',
+                params:{
+                    svc: 'report/exec_report',
+                    params: '{"reportResourceId":22542222,"reportTemplateId":5,"reportTemplate":null,"reportObjectId":"27732669","reportObjectSecId":0,"reportObjectIdList":[28093532, 28093527],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
+                    sid: token
+                }
+            });
+
+
+            const resultRows = vehicleDetails.layerCount;
+            console.log(resultRows);
+
+            // Fetching result rows
+                // Making vehicle detail call
+                const resultRowsData = await axios({
+                    method: 'get',
+                    url:'https://hst-api.wialon.com/wialon/ajax.html',
+                    params:{
+                        svc: 'report/get_result_rows',
+                        params: '{"tableIndex":0,"indexFrom":0,"indexTo":100}',
+                        sid: token
+                    }
+                });
+
+            const responseData = [
+                {
+                "mapping":[
+                    "id",
+                    "group_vehicle",
+                    "mileage",
+                    "engine_hours",
+                    "parkings",
+                    "cons_fls",
+                    "kmpl",
+                    "filled",
+                    "stolen"
+                ]
+                },
+                {
+                "data": resultRowsData.data
+                }
+            ];
+
+            vehicleData = responseData;
+        }else if(reportType == 'theft'){
+            // Making vehicle detail call
+            console.log(`welcome to get vehicle data`);
+            const vehicleDetails = await axios({
+                method: 'get',
+                url:'https://hst-api.wialon.com/wialon/ajax.html',
+                params:{
+                    svc: 'report/exec_report',
+                    params: '{"reportResourceId":22542222,"reportTemplateId":6,"reportTemplate":null,"reportObjectId":"27732669","reportObjectSecId":0,"reportObjectIdList":[28093532, 28093527],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
+                    sid: token
+                }
+            });
+
+
+            const resultRows = vehicleDetails.layerCount;
+            console.log(resultRows);
+
+            // Fetching result rows
+                // Making vehicle detail call
+                const resultRowsData = await axios({
+                    method: 'get',
+                    url:'https://hst-api.wialon.com/wialon/ajax.html',
+                    params:{
+                        svc: 'report/get_result_rows',
+                        params: '{"tableIndex":0,"indexFrom":0,"indexTo":100}',
+                        sid: token
+                    }
+                });
+
+            const responseData = [
+                {
+                "mapping":[
+                    "id",
+                    "group_vehicle",
+                    "mileage",
+                    "engine_hours",
+                    "parkings",
+                    "cons_fls",
+                    "kmpl",
+                    "filled",
+                    "stolen"
+                ]
+                },
+                {
+                "data": resultRowsData.data
+                }
+            ];
+
+            vehicleData = responseData;
+
         }
-      ];
 
-      const vehicleData = responseData;
+          
+
+        
       return vehicleData;
 
       } catch (error) {
