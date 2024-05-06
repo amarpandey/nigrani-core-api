@@ -116,14 +116,12 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
                 {
                 "mapping":[
                     "id",
-                    "group_vehicle",
-                    "mileage",
-                    "engine_hours",
-                    "parkings",
-                    "cons_fls",
-                    "kmpl",
-                    "filled",
-                    "stolen"
+                    "grouping",
+                    "interval_beginning",
+                    "interval_end",
+                    "parking_duration",
+                    "total_data_time",
+                    "location"
                 ]
                 },
                 {
@@ -165,14 +163,12 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
                 {
                 "mapping":[
                     "id",
-                    "group_vehicle",
-                    "mileage",
-                    "engine_hours",
-                    "parkings",
-                    "cons_fls",
-                    "kmpl",
-                    "filled",
-                    "stolen"
+                    "grouping",
+                    "theft_time",
+                    "theft_location",
+                    "fuel_before_theft",
+                    "stolen",
+                    "fuel_after_theft"
                 ]
                 },
                 {
@@ -190,7 +186,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
                 params:{
                     svc: 'report/exec_report',
-                    params: '{"reportResourceId":22542222,"reportTemplateId":8,"reportTemplate":null,"reportObjectId":"27732669","reportObjectSecId":0,"reportObjectIdList":[28093532, 28093527],"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
+                    params: '{"reportResourceId":22542222,"reportTemplateId":8,"reportTemplate":null,"reportObjectId":"28093532","reportObjectSecId":0,*"interval":{"from":'+reportFrom+',"to":'+reportTo+',"flags":0}}',
                     sid: token
                 }
             });
@@ -215,14 +211,14 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
                 {
                 "mapping":[
                     "id",
-                    "group_vehicle",
-                    "mileage",
+                    "machine_id",
                     "engine_hours",
-                    "parkings",
-                    "cons_fls",
-                    "kmpl",
-                    "filled",
-                    "stolen"
+                    "fuel_consumption",
+                    "avg_consumption",
+                    "fuel_filled",
+                    "fuel_stolen",
+                    "initial_fuel_level",
+                    "final_fuel_level0"
                 ]
                 },
                 {
