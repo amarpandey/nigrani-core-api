@@ -9,10 +9,10 @@ const getVehicleDetails = async (req, res)=>{
         const reportType = (req.query.report) ? req.query.report : 'summary' ;
         const validToken = userToken == '9e582221ad39b510b1c6951d6df5a2a4ECE871EDFDFE3D78EC0ABC72929B578A4A12DD04' ? true : false;
         if(validToken){
-            const reportFrom = (new Date(req.query.from).getTime() / 1000);
-            const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
-            // const reportFrom = req.query.from;
-            // const reportTo = req.query.to;
+            // const reportFrom = (new Date(req.query.from).getTime() / 1000);
+            // const reportTo = (new Date(req.query.to).setHours(23, 59) / 1000);
+            const reportFrom = req.query.from;
+            const reportTo = req.query.to;
             console.log('token :: '+ userToken);
             console.log('from :: '+ reportFrom);
             console.log('to :: '+ reportTo);
