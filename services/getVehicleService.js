@@ -133,7 +133,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
         
         }else if(reportType == 'stop'){
             // Making vehicle detail call
-            console.log(`welcome to get vehicle parking data`);
+            console.log(`welcome to get vehicle stop data`);
             const vehicleDetails = await axios({
                 method: 'get',
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
