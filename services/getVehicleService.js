@@ -85,7 +85,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
             vehicleData = responseData;
         }else if(reportType == 'parking'){
             // Making vehicle detail call
-            console.log(`welcome to get vehicle data`);
+            console.log(`welcome to get vehicle parking data`);
             const vehicleDetails = await axios({
                 method: 'get',
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
@@ -132,7 +132,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
             vehicleData = responseData;
         }else if(reportType == 'theft'){
             // Making vehicle detail call
-            console.log(`welcome to get vehicle data`);
+            console.log(`welcome to get vehicle theft data`);
             const vehicleDetails = await axios({
                 method: 'get',
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
@@ -180,7 +180,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
 
         }else if(reportType == 'machine'){
             // Making vehicle detail call
-            console.log(`welcome to get vehicle data`);
+            console.log(`welcome to get vehicle machine data`);
             const vehicleDetails = await axios({
                 method: 'get',
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
@@ -230,7 +230,7 @@ const getVehicleServices = async (sidToken, reportFrom, reportTo, reportType) =>
 
         }else if(reportType == 'power'){
             // Making vehicle detail call
-            console.log(`welcome to get vehicle data`);
+            console.log(`welcome to get vehicle power data`);
             const vehicleDetails = await axios({
                 method: 'get',
                 url:'https://hst-api.wialon.com/wialon/ajax.html',
